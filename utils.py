@@ -55,4 +55,3 @@ def print_metrics(itr, kargs):
     print("")
     sys.stdout.flush()
 
-

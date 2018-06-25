@@ -7,6 +7,7 @@ from datetime import datetime
 import tf_utils as tf_utils
 import utils as utils
 from style_transfer import StyleTranser
+from evaluate import feed_forward
 
 
 class Solver(object):
@@ -43,30 +44,22 @@ class Solver(object):
 
     def save_model(self, iter_time):
         if np.mod(iter_time, self.flags.save_freq) == 0:
-            self.saver.save(self.sess, os.path.join(self.flags.checkpoint_dir, self.style_img_name))
+            model_name = 'model'
+            self.saver.save(self.sess, os.path.join(self.flags.checkpoint_dir, self.style_img_name, model_name))
             print('=====================================')
             print('              Model saved!           ')
             print('=====================================\n')
 
     def sample(self, iter_time):
-        # if np.mod(iter_time, self.flags.sample_freq):
-        #     for idx in range(len(self.test_targets)):
-        #         img_name = self.test_target_names[idx]
-        #         print('test image name: {}'.format(img_name))
-        #
-        #         img = np.asarray([utils.imread(self.test_targets[idx])])
-        #         pred_img = self.model.sample_img(img)
-        #
-        #         file_name = os.path.join(self.flags.test_dir, self.style_img_name,
-        #                                  '%s_%s.png'.format(img_name, iter_time))
-        #         utils.imsave(file_name, pred_img)
-        if np.mod(iter_time, self.flags.sample_freq) == 0:
-            img = np.asarray([utils.imread(self.content_target_paths[0], img_size=(256, 256, 3))])
-            pred_img = self.model.sample_img(img)
-            print('pred_img shape: {}'.format(pred_img.shape))
-            file_name = os.path.join(self.flags.test_dir, self.style_img_name, '%s.png' % iter_time)
-            print('file_name: {}'.format(file_name))
-            utils.imsave(file_name, pred_img[0, :, :, :])
+        if np.mod(iter_time, self.flags.sample_freq):
+            feed_forward(self.test_targets, )
+
+
+        # if np.mod(iter_time, self.flags.sample_freq) == 0:
+        #     img = np.asarray([utils.imread(self.content_target_paths[0], img_size=(256, 256, 3))])
+        #     pred_img = self.model.sample_img(img)
+        #     file_name = os.path.join(self.flags.test_dir, self.style_img_name, '%s.png' % iter_time)
+        #     utils.imsave(file_name, pred_img[0, :, :, :])
 
     def next_batch(self):
         batch_imgs = []
