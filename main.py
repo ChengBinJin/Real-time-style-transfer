@@ -6,7 +6,6 @@ from solver import Solver
 
 FLAGS = tf.flags.FLAGS
 tf.flags.DEFINE_string('gpu_index', '0', 'gpu index, default: 0')
-tf.flags.DEFINE_bool('is_train', True, 'default: True (trainign mode)')
 tf.flags.DEFINE_string('checkpoint_dir', 'checkpoints', 'dir to save checkpoint in, default: ./checkpoints')
 
 tf.flags.DEFINE_string('style_img', 'examples/style/la_muse.jpg',
@@ -28,7 +27,6 @@ tf.flags.DEFINE_float('tv_weight', 200., 'total variation regularization weight,
 tf.flags.DEFINE_float('learning_rate', 0.001, 'learning rate, default: 1e-3')
 
 tf.flags.DEFINE_integer('print_freq', 10, 'print loss frequency, defalut: 100')
-tf.flags.DEFINE_integer('save_freq', 200, 'save model frequnecy, default: 2000')
 tf.flags.DEFINE_integer('sample_freq', 50, 'sample frequency, default: 500')
 
 
@@ -41,7 +39,6 @@ def check_opts(flags):
     assert flags.epochs > 0
     assert flags.batch_size > 0
     assert flags.print_freq > 0
-    assert flags.save_freq > 0
     assert flags.sample_freq > 0
     assert flags.content_weight >= 0
     assert flags.style_weight >= 0
@@ -66,10 +63,7 @@ def main(_):
     check_opts(FLAGS)
 
     solver = Solver(FLAGS)
-    if FLAGS.is_train:
-        solver.train()
-    else:
-        solver.test()
+    solver.train()
 
 
 if __name__ == '__main__':

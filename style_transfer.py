@@ -15,9 +15,6 @@ class StyleTranser(object):
         self.flags = flags
         self.num_iters = num_iters
 
-        self.norm = 'instance'
-        self.tranfer_train_ops = []
-
         self.style_target = np.asarray([utils.imread(self.flags.style_img)])  # [H, W, C] -> [1, H, W, C]
         self.style_shape = self.style_target.shape
         self.content_shape = [None, 256, 256, 3]
@@ -31,6 +28,7 @@ class StyleTranser(object):
         self.content_loss, self.style_loss, self.tv_loss = None, None, None
 
         self._build_net()
+        self._tensorboard()
 
     def _build_net(self):
         # ph: tensorflow placeholder
@@ -66,6 +64,14 @@ class StyleTranser(object):
 
         self.total_loss = self.content_loss + self.style_loss + self.tv_loss
         self.optim = tf.train.AdamOptimizer(learning_rate=self.flags.learning_rate).minimize(self.total_loss)
+
+    def _tensorboard(self):
+        tf.summary.scalar('loss/content_loss', self.content_loss)
+        tf.summary.scalar('loss/style_loss', self.style_loss)
+        tf.summary.scalar('loss/tv_loss', self.tv_loss)
+        tf.summary.scalar('loss/total_loss', self.total_loss)
+
+        self.summary_op = tf.summary.merge_all()
 
     def content_loss_func(self, preds_dict, content_target_feature):
         # calucate content size and check the feature dimension between content and predicted image
@@ -104,11 +110,11 @@ class StyleTranser(object):
         return functools.reduce(mul, (d.value for d in tensor.get_shape()[1:]), 1)
 
     def train_step(self, imgs):
-        ops = [self.optim, self.content_loss, self.style_loss, self.tv_loss, self.total_loss]
+        ops = [self.optim, self.content_loss, self.style_loss, self.tv_loss, self.total_loss, self.summary_op]
         feed_dict = {self.content_img_ph: imgs}
-        _, content_loss, style_loss, tv_loss, total_loss = self.sess.run(ops, feed_dict=feed_dict)
+        _, content_loss, style_loss, tv_loss, total_loss, summary = self.sess.run(ops, feed_dict=feed_dict)
 
-        return [content_loss, style_loss, tv_loss, total_loss]
+        return [content_loss, style_loss, tv_loss, total_loss], summary
 
     def sample_img(self, img):
         return self.sess.run(self.preds, feed_dict={self.content_img_ph: img})
