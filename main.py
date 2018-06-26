@@ -26,8 +26,8 @@ tf.flags.DEFINE_float('style_weight', 100., 'total variation regularization weig
 tf.flags.DEFINE_float('tv_weight', 200., 'total variation regularization weight, default: 200.')
 tf.flags.DEFINE_float('learning_rate', 0.001, 'learning rate, default: 1e-3')
 
-tf.flags.DEFINE_integer('print_freq', 10, 'print loss frequency, defalut: 100')
-tf.flags.DEFINE_integer('sample_freq', 50, 'sample frequency, default: 500')
+tf.flags.DEFINE_integer('print_freq', 100, 'print loss frequency, defalut: 100')
+tf.flags.DEFINE_integer('sample_freq', 2000, 'sample frequency, default: 2000')
 
 
 def check_opts(flags):

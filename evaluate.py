@@ -65,16 +65,19 @@ def check_opts(flags):
     utils.exists(flags.checkpoint_dir, 'checkpoint_dir not found!')
     utils.exists(flags.in_path, 'in_path not found!')
 
-    if not os.path.isdir(flags.out_path):
-        os.makedirs(flags.out_path)
+    style_name = FLAGS.checkpoint_dir.split('/')[-1]
+    if not os.path.isdir(os.path.join(flags.out_path, style_name)):
+        os.makedirs(os.path.join(flags.out_path, style_name))
 
 
 def main(_):
     os.environ['CUDA_VISIBLE_DEVICES'] = FLAGS.gpu_index
     check_opts(FLAGS)
 
+    style_name = FLAGS.checkpoint_dir.split('/')[-1]
     img_paths = utils.all_files_under(FLAGS.in_path)
-    out_paths = [os.path.join(FLAGS.out_path, file) for file in utils.all_files_under(FLAGS.in_path, append_path=False)]
+    out_paths = [os.path.join(FLAGS.out_path, style_name, file)
+                 for file in utils.all_files_under(FLAGS.in_path, append_path=False)]
 
     feed_forward(img_paths, out_paths, FLAGS.checkpoint_dir)
 

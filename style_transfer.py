@@ -19,10 +19,10 @@ class StyleTranser(object):
         self.style_shape = self.style_target.shape
         self.content_shape = [None, 256, 256, 3]
 
-        self.style_layers = ('relu1_1', 'relu2_1', 'relu3_1', 'relu4_1', 'relu5_1')
-        # self.style_layers = ('relu1_2', 'relu2_2', 'relu3_3', 'relu4_3')  # original paper
-        self.content_layer = 'relu4_2'
-        # self.content_layer = 'relu2_2'  # original paper
+        # self.style_layers = ('relu1_1', 'relu2_1', 'relu3_1', 'relu4_1', 'relu5_1')
+        self.style_layers = ('relu1_2', 'relu2_2', 'relu3_3', 'relu4_3', 'relu5_3')  # original paper
+        # self.content_layer = 'relu4_2'
+        self.content_layer = 'relu2_2'  # original paper
 
         self.style_target_gram = {}
         self.content_loss, self.style_loss, self.tv_loss = None, None, None

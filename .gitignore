@@ -3,3 +3,5 @@ __pycache__/
 checkpoints/
 temp/
 examples/
+logs/
+checkpoints_original/
