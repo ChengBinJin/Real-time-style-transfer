@@ -5,3 +5,4 @@ temp/
 examples/
 logs/
 checkpoints_original/
+checkpoints_v2/

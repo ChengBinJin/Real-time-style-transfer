@@ -160,7 +160,7 @@ def res_block(x, k, _ops=None, norm_='instance', is_train=True, pad_type=None, n
         with tf.variable_scope('layer1'):
             if pad_type is None:
                 conv1 = conv2d(x, k, k_h=3, k_w=3, d_h=1, d_w=1, padding='SAME', name='conv')
-            elif pad_type == 'reflect':
+            elif pad_type == 'REFLECT':
                 padded1 = padding2d(x, p_h=1, p_w=1, pad_type='REFLECT', name='padding')
                 conv1 = conv2d(padded1, k, k_h=3, k_w=3, d_h=1, d_w=1, padding='VALID', name='conv')
             normalized1 = norm(conv1, name='norm', _type=norm_, _ops=_ops, is_train=is_train)
@@ -170,7 +170,7 @@ def res_block(x, k, _ops=None, norm_='instance', is_train=True, pad_type=None, n
         with tf.variable_scope('layer2'):
             if pad_type is None:
                 conv2 = conv2d(relu1, k, k_h=3, k_w=3, d_h=1, d_w=1, padding='SAME', name='conv')
-            elif pad_type == 'reflect':
+            elif pad_type == 'REFLECT':
                 padded2 = padding2d(relu1, p_h=1, p_w=1, pad_type='REFLECT', name='padding')
                 conv2 = conv2d(padded2, k, k_h=3, k_w=3, d_h=1, d_w=1, padding='VALID', name='conv')
             normalized2 = norm(conv2, name='norm', _type=norm_, _ops=_ops, is_train=is_train)

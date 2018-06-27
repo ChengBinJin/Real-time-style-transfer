@@ -154,8 +154,9 @@ class Transfer(object):
     @staticmethod
     def _conv_layer(input_, num_filters=32, filter_size=3, strides=1, relu=True, name=None):
         with tf.variable_scope(name):
+            input_ = tf_utils.padding2d(input_, p_h=int(filter_size/2), p_w=int(filter_size/2), pad_type='REFLECT')
             input_ = tf_utils.conv2d(input_, output_dim=num_filters, k_h=filter_size, k_w=filter_size,
-                                     d_h=strides, d_w=strides)
+                                     d_h=strides, d_w=strides, padding='VALID')
             input_ = tf_utils.instance_norm(input_)
 
             if relu:
@@ -169,7 +170,7 @@ class Transfer(object):
             output = None
             for idx in range(1, num_blocks + 1):
                 output = tf_utils.res_block(x, x.get_shape()[3], _ops=_ops, norm_=norm_, is_train=is_train,
-                                            name='res{}'.format(idx))
+                                            pad_type='REFLECT', name='res{}'.format(idx))
                 x = output
 
             if is_print:
