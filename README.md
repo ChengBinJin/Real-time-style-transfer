@@ -21,11 +21,11 @@ It takes 385 ms on a GTX1080Ti to style the MIT Stata Center (1024x680).
 ## Video Stylization
 Here we transformed every frame in a video using various stylle images, then combined the results. [Click to go to the full demo on YouTube!](https://www.youtube.com/watch?v=HpKMLA19zkg&feature=youtu.be)
 
-<div align = 'center'>
-     <a href = 'https://www.youtube.com/watch?v=HpKMLA19zkg&feature=youtu.be'>
-        <img src = https://user-images.githubusercontent.com/37034031/42082312-9ffdbffc-7bc2-11e8-9dfe-e505e5b3c528.gif' alt = 'Stylized fox video. Click to go to YouTube!' width = '800px' height = '400px'>
-     </a>
-</div>
+<p align = 'center'>
+  <a href = 'https://www.youtube.com/watch?v=HpKMLA19zkg&feature=youtu.be'>
+    <img src = 'https://user-images.githubusercontent.com/37034031/42082312-9ffdbffc-7bc2-11e8-9dfe-e505e5b3c528.gif'>
+  </a>
+</p>
 
 ## Image Stylization
 A photo of Chicago was applied for various style paintings. Click on the ./examples/style folder to see full applied style images.
