@@ -19,6 +19,10 @@ It takes 385 ms on a GTX1080Ti to style the MIT Stata Center (1024x680).
 - moviepy 0.2.3.2
 
 ## Video Stylization
+<a href="https://www.youtube.com/watch?v=HpKMLA19zkg&feature=youtu.be" target="_blank">
+  <img src="https://user-images.githubusercontent.com/37034031/42081139-a9e7edb0-7bbf-11e8-93ab-4c84b2ca352b.png" 
+alt="IMAGE ALT TEXT HERE"/>
+</a>
 
 ## Image Stylization
 A photo of Chicago was applied for various style paintings. Click on the ./examples/style folder to see full applied style images.
