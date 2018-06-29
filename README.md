@@ -104,4 +104,4 @@ python transform_video.py --checkpoint_dir path/to/checkpoint /
 - The image of the MIT Stata Center at the very beginning of the README was taken by [Juan Paulo](https://juanpaulo.me/)
 
 ## License
-Copyright (c) 2016 Cheng-Bin Jin. Contact me for commercial use (or rather any use that is not academic research) (email: sbkim0407@gmail.com). Free for research use, as long as proper attribution is given and this copyright notice is retained.
+Copyright (c) 2018 Cheng-Bin Jin. Contact me for commercial use (or rather any use that is not academic research) (email: sbkim0407@gmail.com). Free for research use, as long as proper attribution is given and this copyright notice is retained.
