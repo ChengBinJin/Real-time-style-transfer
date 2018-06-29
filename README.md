@@ -19,10 +19,13 @@ It takes 385 ms on a GTX1080Ti to style the MIT Stata Center (1024x680).
 - moviepy 0.2.3.2
 
 ## Video Stylization
-<a href="https://www.youtube.com/watch?v=HpKMLA19zkg&feature=youtu.be" target="_blank">
-  <img src="https://user-images.githubusercontent.com/37034031/42081139-a9e7edb0-7bbf-11e8-93ab-4c84b2ca352b.png" 
-alt="IMAGE ALT TEXT HERE"/>
-</a>
+Here we transformed every frame in a video using various stylle images, then combined the results. [Click to go to the full demo on YouTube!](https://www.youtube.com/watch?v=HpKMLA19zkg&feature=youtu.be)
+
+<div align = 'center'>
+     <a href = 'https://www.youtube.com/watch?v=HpKMLA19zkg&feature=youtu.be'>
+        <img src = https://user-images.githubusercontent.com/37034031/42082312-9ffdbffc-7bc2-11e8-9dfe-e505e5b3c528.gif' alt = 'Stylized fox video. Click to go to YouTube!' width = '800px' height = '400px'>
+     </a>
+</div>
 
 ## Image Stylization
 A photo of Chicago was applied for various style paintings. Click on the ./examples/style folder to see full applied style images.
@@ -30,7 +33,9 @@ A photo of Chicago was applied for various style paintings. Click on the ./examp
 <p align="center">
 <img src="https://user-images.githubusercontent.com/37034031/42069725-38fab690-7b8e-11e8-8deb-a63fbc09e3f6.png">
 </p>
-  
+
+**For more results you can find [here](https://www.dropbox.com/sh/pp6hmjrq9odekeq/AABzRxR2SZoDbWikMuu2VrKda?dl=0)**.
+
 ## Implementation Details
 Implementation uses TensorFlow to rain a real-time style transfer network. Same transformation network is used as described in Johnson, except that batch normalization is replaced with Ulyanov's instance normalization, zero padding is replaced by reflected padding to reduce boundary artifacts, and the scaling/offset of the output `tanh` layer is slightly different.  
 
