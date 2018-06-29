@@ -1,5 +1,5 @@
 # Real-Time Style Transfer in [TensorFlow](https://github.com/tensorflow/tensorflow)
-This repository is Tensorflow implementation of Johnson's [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155).
+This repository is Tensorflow implementation of Johnson's [Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/abs/1603.08155). 
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/37034031/42068027-830719f4-7b84-11e8-9e87-088f1e476aab.png" width=800>
@@ -17,12 +17,11 @@ It takes 385 ms on a GTX1080Ti to style the MIT Stata Center (1024x680).
 - numpy 1.14.2  
 - scipy 0.19.0
 - moviepy 0.2.3.2
-- opencv 3.2.0
 
 ## Video Stylization
 
 ## Image Stylization
-A photo of Chicago was applied for various style paintings. Click on the ./examples/style fold to see full applied style images.
+A photo of Chicago was applied for various style paintings. Click on the ./examples/style folder to see full applied style images.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/37034031/42069725-38fab690-7b8e-11e8-8deb-a63fbc09e3f6.png">
@@ -60,14 +59,42 @@ python main.py --style_img path/to/style/img.jpg \
 
 ### Evaluating Style Transfer Networks
 Use `evaluate.py` to evaluate a style transfer network. Evaluation takes 300 ms per frame on a GTX 1080Ti. Takes several seconds per frame on a CPU. **Models for evaluation are [located here](https://www.dropbox.com/sh/3t7a4x8szw0vfw1/AABJkx2aouEw1mBOR73WUqZ5a?dl=0)**. Example usage:
+```
+python evaluate.py --checkpoint_dir path/to/checkpoint /
+  --in_path path/to/test/image/folder
+```
+- `--gpu_index`: gpu index, default: `0`  
+- `--checkpoint_dir`: dir to read checkpoint in, default: `./checkpoints/la_muse`  
+- `--in_path`: test image path, default: `./examples/test`  
+- `--out_path`: destination dir of transformed files, default: `./examples/results` 
 
 ### Stylizing Video
+Use `transform_video.py` to transfer style into a video. Requires `moviepy`. Example usage:
+```
+python transform_video.py --checkpoint_dir path/to/checkpoint /
+  --in_path path/to/input/video.mp4 /
+  --out_path path/to/write/predicted_video.mp4
+```
+- `--gpu_index`: gpu index, default: `0`  
+- `--checkpoint_dir`: dir to read checkpoint in, default: `./checkpoints/la_muse`  
+- `--in_path`: input video path, default: `None`
+- `--out_path`: path to save processed video to, default: `None`
 
 ### Citation
+```
+  @misc{chengbinjin2018realtimestyletransfer,
+    author = {Cheng-Bin Jin},
+    title = {Real-Time Style Transfer},
+    year = {2018},
+    howpublished = {\url{https://github.com/ChengBinJin/Real-time-style-transfer/}},
+    note = {commit xxxxxxx}
+  }
+```
 
 ### Attributions/Thanks
-
-### Related Work
+- This project borrowed some code from [Logan Engstrom](https://github.com/lengstrom/fast-style-transfer) adnd Anish's [Neural Style](https://github.com/anishathalye/neural-style/)
+- Some readme formatting was borrowed from [Logan Engstrom](https://github.com/lengstrom/fast-style-transfer)
+- The image of the MIT Stata Center at the very beginning of the README was taken by [Juan Paulo](https://juanpaulo.me/)
 
 ## License
 Copyright (c) 2016 Cheng-Bin Jin. Contact me for commercial use (or rather any use that is not academic research) (email: sbkim0407@gmail.com). Free for research use, as long as proper attribution is given and this copyright notice is retained.
