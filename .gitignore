@@ -2,7 +2,10 @@
 __pycache__/
 checkpoints/
 temp/
-examples/
+examples/temp
+examples/test
+examples/results
 logs/
 checkpoints_original/
 checkpoints_v2/
+github_img/

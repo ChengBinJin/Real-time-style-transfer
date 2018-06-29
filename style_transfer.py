@@ -1,5 +1,5 @@
 # ------------------------------------------------------------
-# Tensorflow Utils Implementation
+# Real-Time Style Transfer Implementation
 # Licensed under The MIT License [see LICENSE for details]
 # Written by Cheng-Bin Jin, based on code from Logan Engstrom
 # Email: sbkim0407@gmail.com

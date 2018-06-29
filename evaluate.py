@@ -1,10 +1,11 @@
 # ------------------------------------------------------------
-# Tensorflow Utils Implementation
+# Real-Time Style Transfer Implementation
 # Licensed under The MIT License [see LICENSE for details]
 # Written by Cheng-Bin Jin, based on code from Logan Engstrom
 # Email: sbkim0407@gmail.com
 # ------------------------------------------------------------
 import os
+import time
 import numpy as np
 import tensorflow as tf
 from collections import defaultdict
@@ -15,11 +16,11 @@ import utils as utils
 FLAGS = tf.flags.FLAGS
 tf.flags.DEFINE_string('gpu_index', '0', 'gpu index, default: 0')
 tf.flags.DEFINE_string('checkpoint_dir', 'checkpoints/la_muse',
-                       'dir to save checkpoint in, default: ./checkpoints/la_muse')
+                       'dir to read checkpoint in, default: ./checkpoints/la_muse')
 
 tf.flags.DEFINE_string('in_path', './examples/test', 'test image path, default: ./examples/test')
 tf.flags.DEFINE_string('out_path', './examples/results',
-                       'destination (dir or file) of transformed file or files, default: ./examples/restuls')
+                       'destination dir of transformed files, default: ./examples/restuls')
 
 
 def feed_transform(data_in, paths_out, checkpoint_dir):
@@ -46,7 +47,10 @@ def feed_transform(data_in, paths_out, checkpoint_dir):
             saver.restore(sess, checkpoint_dir)
 
         img = np.asarray([utils.imread(data_in[0])]).astype(np.float32)
+        start_tic = time.time()
         _pred = sess.run(pred, feed_dict={img_placeholder: img})
+        end_toc = time.time()
+        print('PT: {:.2f} msec.\n'.format((end_toc - start_tic) * 1000))
         utils.imsave(paths_out[0], _pred[0])  # paths_out and _pred is list
 
 

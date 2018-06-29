@@ -1,5 +1,5 @@
 # ------------------------------------------------------------
-# Tensorflow Utils Implementation
+# Real-Time Style Transfer Implementation
 # Licensed under The MIT License [see LICENSE for details]
 # Written by Cheng-Bin Jin, based on code from Logan Engstrom
 # Email: sbkim0407@gmail.com
@@ -16,8 +16,8 @@ from style_transfer import Transfer
 FLAGS = tf.flags.FLAGS
 tf.flags.DEFINE_string('gpu_index', '0', 'gpu index, default: 0')
 tf.flags.DEFINE_string('checkpoint_dir', 'checkpoints/la_muse',
-                       'dir to save checkpoint in, default: ./checkpoints/la_muse')
-tf.flags.DEFINE_string('in_path', None, 'in video path')
+                       'dir to read checkpoint in, default: ./checkpoints/la_muse')
+tf.flags.DEFINE_string('in_path', None, 'input video path')
 tf.flags.DEFINE_string('out_path', None, 'path to save processeced video to')
 
 

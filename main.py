@@ -1,5 +1,5 @@
 # ------------------------------------------------------------
-# Tensorflow Utils Implementation
+# Real-Time Style Transfer Implementation
 # Licensed under The MIT License [see LICENSE for details]
 # Written by Cheng-Bin Jin
 # Email: sbkim0407@gmail.com
@@ -28,7 +28,7 @@ tf.flags.DEFINE_integer('batch_size', 4, 'batch size for single feed forward, de
 tf.flags.DEFINE_string('vgg_path', '../Models_zoo/imagenet-vgg-verydeep-19.mat',
                        'path to VGG19 network, default: ../Models_zoo/imagenet-vgg-verydeep-19.mat')
 tf.flags.DEFINE_float('content_weight', 7.5, 'content weight, default: 7.5')
-tf.flags.DEFINE_float('style_weight', 100., 'total variation regularization weight, default: 100.')
+tf.flags.DEFINE_float('style_weight', 100., 'style weight, default: 100.')
 tf.flags.DEFINE_float('tv_weight', 200., 'total variation regularization weight, default: 200.')
 tf.flags.DEFINE_float('learning_rate', 0.001, 'learning rate, default: 1e-3')
 
