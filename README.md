@@ -28,13 +28,11 @@ Here we transformed every frame in a video using various stylle images, then com
 </p>
 
 ## Image Stylization
-A photo of Chicago was applied for various style paintings. Click on the ./examples/style folder to see full applied style images.
+A photo of Chicago was applied for various style paintings. Click on the ./examples/style folder to see full applied style images. **For more results you can find [here](https://www.dropbox.com/sh/pp6hmjrq9odekeq/AABzRxR2SZoDbWikMuu2VrKda?dl=0)**.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/37034031/42069725-38fab690-7b8e-11e8-8deb-a63fbc09e3f6.png">
 </p>
-
-**For more results you can find [here](https://www.dropbox.com/sh/pp6hmjrq9odekeq/AABzRxR2SZoDbWikMuu2VrKda?dl=0)**.
 
 ## Implementation Details
 Implementation uses TensorFlow to rain a real-time style transfer network. Same transformation network is used as described in Johnson, except that batch normalization is replaced with Ulyanov's instance normalization, zero padding is replaced by reflected padding to reduce boundary artifacts, and the scaling/offset of the output `tanh` layer is slightly different.  
