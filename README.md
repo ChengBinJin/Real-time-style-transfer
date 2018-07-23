@@ -35,7 +35,7 @@ A photo of Chicago was applied for various style paintings. Click on the ./examp
 </p>
 
 ## Implementation Details
-Implementation uses TensorFlow to rain a real-time style transfer network. Same transformation network is used as described in Johnson, except that batch normalization is replaced with Ulyanov's instance normalization, zero padding is replaced by reflected padding to reduce boundary artifacts, and the scaling/offset of the output `tanh` layer is slightly different.  
+Implementation uses TensorFlow to train a real-time style transfer network. Same transformation network is used as described in Johnson, except that batch normalization is replaced with Ulyanov's instance normalization, zero padding is replaced by reflected padding to reduce boundary artifacts, and the scaling/offset of the output `tanh` layer is slightly different.  
 
 We follow  [Logan Engstrom](https://github.com/lengstrom/fast-style-transfer) to use a loss function close to the one described in Gatys, using VGG19 instead of VGG16 and typically using "shallower" layers than in Johson's implementation (e.g. `relu1_1` is used rather than `relu1_2`).
 
