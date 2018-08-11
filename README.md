@@ -12,7 +12,7 @@ This repository is Tensorflow implementation of Johnson's [Perceptual Losses for
 It takes 385 ms on a GTX1080Ti to style the MIT Stata Center (1024x680).
 
 ## Requirements
-- tensorflow 1.18.0
+- tensorflow 1.8.0
 - python 3.5.3  
 - numpy 1.14.2  
 - scipy 0.19.0
