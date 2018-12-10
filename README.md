@@ -28,7 +28,7 @@ Here we transformed every frame in a video using various stylle images, then com
 </p>
 
 ## Image Stylization
-A photo of Chicago was applied for various style paintings. Click on the ./examples/style folder to see full applied style images. **For more results you can find [here](https://www.dropbox.com/sh/pp6hmjrq9odekeq/AABzRxR2SZoDbWikMuu2VrKda?dl=0)**.
+A photo of Chicago was applied for various style paintings. Click on the ./examples/style folder to see full applied style images. **For more results you can find [here](https://www.dropbox.com/sh/8x0jkgywxhrtb7o/AAC2YmgDr08D0FQ6PzeIF5fwa?dl=0)**.
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/37034031/42069725-38fab690-7b8e-11e8-8deb-a63fbc09e3f6.png">
@@ -65,7 +65,7 @@ python main.py --style_img path/to/style/img.jpg \
 - `--sample_freq`:      sample frequency, default: `2000`  
 
 ### Evaluating Style Transfer Networks
-Use `evaluate.py` to evaluate a style transfer network. Evaluation takes 300 ms per frame on a GTX 1080Ti. Takes several seconds per frame on a CPU. **Models for evaluation are [located here](https://www.dropbox.com/sh/3t7a4x8szw0vfw1/AABJkx2aouEw1mBOR73WUqZ5a?dl=0)**. Example usage:
+Use `evaluate.py` to evaluate a style transfer network. Evaluation takes 300 ms per frame on a GTX 1080Ti. Takes several seconds per frame on a CPU. **Models for evaluation are [located here](https://www.dropbox.com/sh/wh067d88o0ylcha/AABpYBTnufQiMQeVHXqYhdZXa?dl=0)**. Example usage:
 ```
 python evaluate.py --checkpoint_dir path/to/checkpoint /
   --in_path path/to/test/image/folder
